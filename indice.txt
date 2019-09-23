@@ -1,0 +1,57 @@
+Introdução
+Algoritmos, Estruturas de Dados e Programas
+Tipos de Dados e Tipos Abstratos de Dados
+Medida do Tempo de Execução de um Programa
+Comportamento Assintótico de Funções
+Classes de Comportamento Assintótico
+Técnicas de Análise de Algoritmos
+Pascal
+Notas Bibliográficas
+Exercícios
+Estruturas de Dados Básicas
+Listas Lineares
+Implementação de Listas Através de Arranjos
+Implementação de Listas Através de Apontadores
+Pilhas
+Implementação de Pilhas Através de Arranjos
+Implementação de Pilhas Através de Apontadores 
+Filas
+Implementação de Filas Através de Arranjos
+Implementação de Filas Através de Apontadores
+Notas Bibliográficas
+Exercícios
+Ordenação
+Ordenação Interna
+Ordenação por Seleção
+Ordenação por Inserção
+Shellsort
+Quicksort
+Heapsort
+Comparação Entre os Métodos
+Ordenação Externa
+Intercalação Balanceada de Vários Caminhos
+Implementação Através de Seleção por Substituição
+Considerações Práticas
+Notas Bibliográficas
+Exercícios
+Pesquisa em Memória Primária
+Pesquisa Sequencial
+Pesquisa Binária
+Arvores de Pesquisa
+Arvores Binárias de Pesquisa Sem Balanceamento
+Arvores Binárias de Pesquisa Com Balanceamento
+Pesquisa Digital Transformação de Chave (Hashing)
+Funções de Transformação
+Listas Encadeadas
+Open Addressing
+Notas Bibliográficas
+Exercícios
+Pesquisa em Memória Secundária 155
+Modelo de Computação para Memória Secundária
+Acesso Sequencial Indexado Arvores de Pesquisa
+Arvores B
+Arvores B*
+Acesso Concorrente em Arvores B*
+Considerações Práticas
+Notas Bibliográficas
+Exercícios
