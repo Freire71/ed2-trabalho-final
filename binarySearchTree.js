@@ -51,7 +51,7 @@ export class BST {
     let current = this.root;
 
     while (current) {
-      if (data == current.data) return current;
+      if (data == current.data) return current.array;
 
       if (current.right && data > current.data) {
         current = current.right;
@@ -62,15 +62,19 @@ export class BST {
 
     return false;
   }
+
   inOrder() {
-    const finalData = [];
+    const data = [];
 
     function traverse(node) {
       if (node.left) traverse(node.left);
-      finalData.push(node);
+      data.push(node);
       if (node.right) traverse(node.right);
     }
     traverse(this.root);
-    return finalData;
+
+    data.forEach(node => {
+      console.log(`${node.data} ${[node.array].join(",")}`);
+    });
   }
 }

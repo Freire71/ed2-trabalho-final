@@ -1,21 +1,24 @@
 import { HashTable } from "./hashTable";
 import { BST } from "./binarySearchTree";
-var fs = require("fs");
-var keywords = fs
+const fs = require("fs");
+let keywords = fs
   .readFileSync("palavras.txt")
   .toString()
   .replace(/[\r]/g, "")
   .toLowerCase()
   .split("\n");
 
-var text = fs
+const text = fs
   .readFileSync("indice.txt")
   .toString()
   .replace(/[\r]/g, "")
   .toLowerCase()
   .split("\n");
 
-const mountIndex = (dataStructure, name) => {
+// Remove palavras chaves duplicadas
+keywords = [...new Set(keywords)];
+
+const mountIndex = dataStructure => {
   keywords.forEach(keyword => {
     const keywordLength = keyword.split(" ").length;
     text.forEach((phrase, index) => {
@@ -38,18 +41,9 @@ const mountIndex = (dataStructure, name) => {
           const register = dataStructure.find(keyword);
           console.log(`${phrase} INCLUE ${keyword}`);
           if (!register) {
-            if (name === "hash_table") {
-              dataStructure.add(keyword, [index + 1]);
-            } else if (name === "binary_tree") {
-              console.log(`Não tinha ${keyword}`);
-              dataStructure.add(keyword, [index + 1]);
-            }
+            dataStructure.add(keyword, [index + 1]);
           } else {
-            if (name === "hash_table") {
-              register.push(index + 1);
-            } else if (name === "binary_tree") {
-              register.array.push(index + 1);
-            }
+            register.push(index + 1);
           }
         }
       }
@@ -59,22 +53,24 @@ const mountIndex = (dataStructure, name) => {
 
 function useHashTable() {
   let ht = new HashTable();
-  mountIndex(ht, "hash_table");
-  console.log(">>> RESULTADO:");
+  mountIndex(ht);
+  console.log(">>> RESULTADO TABELA HASH:");
   ht.values();
+  console.timeEnd(">>> Time:");
 }
 
 function useBinaryTree() {
   const bst = new BST();
-  mountIndex(bst, "binary_tree");
-  const stringArray = bst.inOrder();
-  console.log(">>> RESULTADO:");
-  stringArray.forEach(node =>
-    console.log(`${node.data} ${[...new Set(node.array)].join(",")}`)
-  );
+  mountIndex(bst);
+  console.log(">>> RESULTADO ÁRVORE BINÁRIA:");
+  bst.inOrder();
+
+  console.timeEnd(">>> Time:");
 }
 
 const algorithm = process.argv[2];
+console.time(">>> Time:");
+
 if (algorithm === "bst") {
   useBinaryTree();
 } else if (algorithm === "ht") {

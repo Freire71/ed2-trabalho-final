@@ -75,14 +75,13 @@ export let HashTable = function() {
       }
     });
     flatValues.sort(function(a, b) {
-      // return a[0].localeCompare(b[0]);
       if (a[0] > b[0]) return 1;
       if (a[0] < b[0]) return -1;
       return 0;
     });
 
     flatValues.forEach(value => {
-      console.log(`${value[0]} ${[...new Set(value[1])].join(",")} `);
+      console.log(`${value[0]} ${value[1].join(",")} `);
     });
   };
 };
