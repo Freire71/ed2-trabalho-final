@@ -21,12 +21,12 @@ export class BST {
     }
     let current = this.root;
     while (current) {
-      // duplicates check
+      // procura por duplicados
       if (data === current.data) {
         return;
       }
 
-      // left node insertion
+      // inserção no nó da esquerda
       if (data < current.data) {
         if (!current.left) {
           current.left = node;
@@ -35,7 +35,7 @@ export class BST {
         current = current.left;
       }
 
-      //right node insertion
+      // inserção no nó da direita
       if (data > current.data) {
         if (!current.right) {
           current.right = node;
@@ -66,12 +66,12 @@ export class BST {
   inOrder() {
     const data = [];
 
-    function traverse(node) {
-      if (node.left) traverse(node.left);
+    function move(node) {
+      if (node.left) move(node.left);
       data.push(node);
-      if (node.right) traverse(node.right);
+      if (node.right) move(node.right);
     }
-    traverse(this.root);
+    move(this.root);
 
     data.forEach(node => {
       console.log(`${node.data} ${[node.array].join(",")}`);
